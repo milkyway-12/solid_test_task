@@ -36,11 +36,10 @@ class ThemeButton extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style:
-            textStyle ??
+        style: textStyle ??
             Theme.of(context).textTheme.labelLarge?.copyWith(
-              color: Theme.of(context).colorScheme.onPrimary,
-            ),
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
       ),
     );
   }

@@ -14,7 +14,6 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(seedColor: Colors.lightBlueAccent),
-
       textTheme: const TextTheme(
         bodyLarge: TextStyle(
           fontSize: 28,
