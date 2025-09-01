@@ -8,7 +8,6 @@ import 'package:solid_test_task/features/color_generator/domain/repositories/art
 /// This class bridges the domain-level repository interface with the
 /// actual platform-specific logic provided by [ArtShareManager].
 class ArtShareRepositoryImpl implements ArtShareRepository {
-
   /// Shares a widget as an image using [ArtShareManager].
   ///
   /// [artWidgetKey] identifies the widget to capture.

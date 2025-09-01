@@ -15,7 +15,6 @@ import 'package:solid_test_task/features/color_generator/presentation/widgets/ar
 /// This painter is typically used in conjunction with [ArtWidget] to render
 /// generated art elements on the screen.
 class ArtPainter extends CustomPainter {
-
   /// List of elements to paint.
   final List<ArtElement> elements;
 
@@ -32,7 +31,6 @@ class ArtPainter extends CustomPainter {
         ..style = PaintingStyle.fill;
 
       switch (element.shape) {
-
         case ElementShape.rectangle:
           canvas.drawRect(element.rect, paint);
 

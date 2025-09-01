@@ -14,7 +14,6 @@ import 'package:solid_test_task/features/color_generator/presentation/painters/a
 ///
 /// Used in conjunction with [ColorPage] and [ArtPainter].
 class ArtWidget extends StatefulWidget {
-
   /// List of randomly generated colors of elements.
   final List<Color> colors;
 
@@ -27,7 +26,8 @@ class ArtWidget extends StatefulWidget {
   /// Creates an [ArtWidget] with the given [colors], optional [size],
   /// and [repaintKey].
   const ArtWidget({
-    required this.colors, super.key,
+    required this.colors,
+    super.key,
     this.size = 300,
     this.repaintKey,
   });
@@ -62,7 +62,7 @@ class _ArtWidgetState extends State<ArtWidget> {
 
     for (int i = currentCount; i < widget.colors.length; i++) {
       // setState(() {
-        _elements.add(_createRandomElement(widget.colors[i]));
+      _elements.add(_createRandomElement(widget.colors[i]));
       // });
     }
   }
@@ -72,7 +72,7 @@ class _ArtWidgetState extends State<ArtWidget> {
     final double x = _random.nextDouble() * (widget.size - size);
     final double y = _random.nextDouble() * (widget.size - size);
     final shape =
-    ElementShape.values[_random.nextInt(ElementShape.values.length)];
+        ElementShape.values[_random.nextInt(ElementShape.values.length)];
 
     return ArtElement(
       color: color,
@@ -83,7 +83,6 @@ class _ArtWidgetState extends State<ArtWidget> {
 
   @override
   Widget build(BuildContext context) {
-
     final Widget grid = Container(
       width: widget.size,
       height: widget.size,
@@ -98,10 +97,7 @@ class _ArtWidgetState extends State<ArtWidget> {
       ),
     );
 
-    return RepaintBoundary(
-      key: widget.repaintKey,
-      child: grid,
-    );
+    return RepaintBoundary(key: widget.repaintKey, child: grid);
   }
 
   @override

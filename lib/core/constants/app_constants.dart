@@ -1,6 +1,5 @@
 /// Class with constants of the app.
 class AppConstants {
-
   /// App bar name.
   static const appBarName = 'Getting random colors!';
 
@@ -21,8 +20,7 @@ class AppConstants {
       'Context not found for RepaintBoundary key';
 
   /// Exception finding RenderObject.
-  static const String exceptionRenderObjectFound =
-      'RenderObject not found';
+  static const String exceptionRenderObjectFound = 'RenderObject not found';
 
   /// Exception wrapping object into RepaintBoundary.
   static const String exceptionWrappingIntoRepaintBoundary =

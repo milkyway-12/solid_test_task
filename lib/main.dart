@@ -12,7 +12,6 @@ void main() {
 
 /// Entry point of the application.
 class MyApp extends StatelessWidget {
-
   /// Sets up [MaterialApp] with a light theme and provides
   /// [ColorCubit] to the widget tree via [BlocProvider].
   ///
@@ -23,11 +22,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Solid Test Task',
-        theme: AppTheme.light,
-        home: BlocProvider(
-          create: (_) => ColorCubit(),
-          child: const ColorPage(),
-        ),);
+      title: 'Solid Test Task',
+      theme: AppTheme.light,
+      home: BlocProvider(create: (_) => ColorCubit(), child: const ColorPage()),
+    );
   }
 }

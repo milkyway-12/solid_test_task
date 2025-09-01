@@ -10,7 +10,6 @@ import 'package:solid_test_task/core/utils/color_changer.dart';
 /// and provides functionality to change the color
 /// randomly and to share rendered art widgets.
 class ColorCubit extends Cubit<Color> {
-
   /// Default color is [Colors.white].
   ColorCubit() : super(Colors.white);
 
@@ -27,8 +26,7 @@ class ColorCubit extends Cubit<Color> {
   /// - [name]: The name of the file to be saved/shared.
   /// - [text]: Description or caption to accompany
   /// the shared content.
-  void shareArt (GlobalKey artWidgetKey,
-  String name, String text,) {
+  void shareArt(GlobalKey artWidgetKey, String name, String text) {
     ArtShareManager.shareWidget(
       repaintBoundaryKey: artWidgetKey,
       fileName: name,

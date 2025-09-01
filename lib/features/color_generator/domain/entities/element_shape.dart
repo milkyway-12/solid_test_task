@@ -1,7 +1,6 @@
 /// In this enum class we declare shapes of random
 /// elements we create
 enum ElementShape {
-
   /// Rectangle shape
   rectangle,
 
@@ -9,5 +8,5 @@ enum ElementShape {
   circle,
 
   /// Triangle shape
-  triangle
+  triangle,
 }

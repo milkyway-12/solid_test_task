@@ -38,8 +38,9 @@ class ArtShareManager {
       }
 
       final ui.Image image = await renderObject.toImage(pixelRatio: 3.0);
-      final ByteData? byteData =
-          await image.toByteData(format: ui.ImageByteFormat.png);
+      final ByteData? byteData = await image.toByteData(
+        format: ui.ImageByteFormat.png,
+      );
 
       if (byteData == null) {
         throw Exception(AppConstants.exceptionConvertingImage);
@@ -53,10 +54,9 @@ class ArtShareManager {
 
       await imageFile.writeAsBytes(imageBytes);
 
-      await Share.shareXFiles(
-        [XFile(imageFile.path)],
-        text: text ?? AppConstants.defaultImageText,
-      );
+      await Share.shareXFiles([
+        XFile(imageFile.path),
+      ], text: text ?? AppConstants.defaultImageText);
     } catch (e) {
       rethrow;
     }

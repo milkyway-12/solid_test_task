@@ -10,7 +10,6 @@ import 'package:solid_test_task/features/color_generator/presentation/widgets/th
 /// random element of this random color onto [ArtWidget].
 /// The last could be exported via button "Share art".
 class ColorPage extends StatefulWidget {
-
   /// State for [ColorPage].
   ///
   /// Manages background color changes, adding new colors to the
@@ -22,7 +21,6 @@ class ColorPage extends StatefulWidget {
 }
 
 class _ColorPageState extends State<ColorPage> {
-
   /// List of generated colors used in [ArtWidget].
   List<Color> colors = [];
 
@@ -44,52 +42,57 @@ class _ColorPageState extends State<ColorPage> {
 
   /// Requests [ColorCubit] to capture and share the current artwork.
   void _shareArt(GlobalKey key, String name, String text) {
-    context.read<ColorCubit>().shareArt(
-      key, name, text,
-    );
+    context.read<ColorCubit>().shareArt(key, name, text);
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocListener<ColorCubit, Color>(
-        listener: (_, newColor) {
-          _addColorToColorsList(newColor);
-    }, child:
-      BlocBuilder<ColorCubit, Color>(builder: (context, backgroundColor) {
-      return SafeArea(
-          child: Scaffold(
+      listener: (_, newColor) {
+        _addColorToColorsList(newColor);
+      },
+      child: BlocBuilder<ColorCubit, Color>(
+        builder: (context, backgroundColor) {
+          return SafeArea(
+            child: Scaffold(
               backgroundColor: backgroundColor,
               appBar: AppBar(
                 backgroundColor: Theme.of(context).colorScheme.surface,
-                title: Text(AppConstants.appBarName,
-                    style: Theme.of(context).textTheme.bodyMedium,),
+                title: Text(
+                  AppConstants.appBarName,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               ),
               body: Center(
                 child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ThemeButton(
-                        text: AppConstants.changeColorButtonText,
-                        textStyle: Theme.of(context).textTheme.bodyLarge,
-                        onPressed: _changeColor,
-                      ),
-                      const SizedBox(height: AppConstants.mainAxisDistance),
-                      ArtWidget(
-                        colors: colors,
-                        key: _artRepaintKey,
-                      ),
-                      const SizedBox(height: AppConstants.mainAxisDistance),
-                      ThemeButton(
-                          text: AppConstants.shareButtonText,
-                          textStyle: Theme.of(context).textTheme.bodyMedium,
-                          onPressed: () {
-                            _shareArt(
-                              _artRepaintKey, AppConstants.artKey,
-                              AppConstants.artTitle(colors.length),
-                            );
-                          },),
-                    ],),
-              ),),);
-    },),);
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    ThemeButton(
+                      text: AppConstants.changeColorButtonText,
+                      textStyle: Theme.of(context).textTheme.bodyLarge,
+                      onPressed: _changeColor,
+                    ),
+                    const SizedBox(height: AppConstants.mainAxisDistance),
+                    ArtWidget(colors: colors, key: _artRepaintKey),
+                    const SizedBox(height: AppConstants.mainAxisDistance),
+                    ThemeButton(
+                      text: AppConstants.shareButtonText,
+                      textStyle: Theme.of(context).textTheme.bodyMedium,
+                      onPressed: () {
+                        _shareArt(
+                          _artRepaintKey,
+                          AppConstants.artKey,
+                          AppConstants.artTitle(colors.length),
+                        );
+                      },
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
   }
 }

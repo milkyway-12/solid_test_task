@@ -28,17 +28,19 @@ class ThemeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton(
       style: ElevatedButton.styleFrom(
-          backgroundColor: Theme.of(context).primaryColorLight,
-          foregroundColor: Theme.of(context).colorScheme.onPrimary,
-          side: BorderSide(color: Theme.of(context).canvasColor),
-          shadowColor: Theme.of(context).shadowColor),
+        backgroundColor: Theme.of(context).primaryColorLight,
+        foregroundColor: Theme.of(context).colorScheme.onPrimary,
+        side: BorderSide(color: Theme.of(context).canvasColor),
+        shadowColor: Theme.of(context).shadowColor,
+      ),
       onPressed: onPressed,
       child: Text(
         text,
-        style: textStyle ??
+        style:
+            textStyle ??
             Theme.of(context).textTheme.labelLarge?.copyWith(
-                  color: Theme.of(context).colorScheme.onPrimary,
-                ),
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
       ),
     );
   }
