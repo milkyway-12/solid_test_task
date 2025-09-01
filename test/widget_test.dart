@@ -7,9 +7,9 @@ import 'package:solid_test_task/features/color_generator/presentation/pages/colo
 import 'package:solid_test_task/features/color_generator/presentation/widgets/art_widget.dart';
 
 void main() {
-  testWidgets('ColorPage displays buttons and ArtWidget',
-          (WidgetTester tester) async {
-
+  testWidgets('ColorPage displays buttons and ArtWidget', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(
       MaterialApp(
         home: BlocProvider<ColorCubit>(
