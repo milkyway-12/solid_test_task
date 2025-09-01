@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_match_file_name
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:solid_test_task/core/theme/app_theme.dart';
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
         title: 'Solid Test Task',
         theme: AppTheme.light,
         home: BlocProvider(
-          create: (context) => ColorCubit(),
+          create: (_) => ColorCubit(),
           child: const ColorPage(),
         ),);
   }

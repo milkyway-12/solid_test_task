@@ -52,7 +52,7 @@ class _ColorPageState extends State<ColorPage> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<ColorCubit, Color>(
-        listener: (context, newColor) {
+        listener: (_, newColor) {
           _addColorToColorsList(newColor);
     }, child:
       BlocBuilder<ColorCubit, Color>(builder: (context, backgroundColor) {
@@ -73,18 +73,18 @@ class _ColorPageState extends State<ColorPage> {
                         textStyle: Theme.of(context).textTheme.bodyLarge,
                         onPressed: _changeColor,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: AppConstants.mainAxisDistance),
                       ArtWidget(
                         colors: colors,
                         key: _artRepaintKey,
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: AppConstants.mainAxisDistance),
                       ThemeButton(
                           text: AppConstants.shareButtonText,
                           textStyle: Theme.of(context).textTheme.bodyMedium,
                           onPressed: () {
                             _shareArt(
-                              _artRepaintKey, AppConstants.artKey(colors.length),
+                              _artRepaintKey, AppConstants.artKey,
                               AppConstants.artTitle(colors.length),
                             );
                           },),

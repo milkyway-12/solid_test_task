@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/cupertino.dart';
+import 'package:solid_test_task/core/constants/app_constants.dart';
 
 /// Utility class for generating random colors - main class of this test task
 class ColorChanger {
@@ -12,11 +13,12 @@ class ColorChanger {
   /// when rendered on a colored background.
   static Color getRandomColorFromARGB () {
     final random = Random();
+
     return Color.fromARGB(
-      255,
-      random.nextInt(256),
-      random.nextInt(256),
-      random.nextInt(256),
+      AppConstants.defaultOpacity,
+      random.nextInt(AppConstants.colorDiapason),
+      random.nextInt(AppConstants.colorDiapason),
+      random.nextInt(AppConstants.colorDiapason),
     );
   }
 }

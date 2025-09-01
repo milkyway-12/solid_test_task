@@ -50,14 +50,6 @@ class _ArtWidgetState extends State<ArtWidget> {
     _generateElements();
   }
 
-  @override
-  void didUpdateWidget(ArtWidget oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.colors.length > _elements.length) {
-      _addNewElements();
-    }
-  }
-
   void _generateElements() {
     _elements.clear();
     for (final color in widget.colors) {
@@ -69,9 +61,9 @@ class _ArtWidgetState extends State<ArtWidget> {
     final int currentCount = _elements.length;
 
     for (int i = currentCount; i < widget.colors.length; i++) {
-      setState(() {
+      // setState(() {
         _elements.add(_createRandomElement(widget.colors[i]));
-      });
+      // });
     }
   }
 
@@ -79,7 +71,8 @@ class _ArtWidgetState extends State<ArtWidget> {
     final double size = 20 + _random.nextDouble() * 90;
     final double x = _random.nextDouble() * (widget.size - size);
     final double y = _random.nextDouble() * (widget.size - size);
-    final shape = ElementShape.values[_random.nextInt(ElementShape.values.length)];
+    final shape =
+    ElementShape.values[_random.nextInt(ElementShape.values.length)];
 
     return ArtElement(
       color: color,
@@ -104,9 +97,18 @@ class _ArtWidgetState extends State<ArtWidget> {
         painter: ArtPainter(elements: _elements),
       ),
     );
+
     return RepaintBoundary(
       key: widget.repaintKey,
       child: grid,
     );
+  }
+
+  @override
+  void didUpdateWidget(ArtWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.colors.length > _elements.length) {
+      _addNewElements();
+    }
   }
 }
